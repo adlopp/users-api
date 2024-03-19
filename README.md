@@ -12,7 +12,7 @@ For a learning purpose.
 
 **Compile and run the project:** Now your database will be running.
 
-If you want you can also use an application like Postman to see how the data is created when adding or deleting products.
+If you want you can also use an application like Postman to see how the data is created when adding or deleting users.
 
 The default path for making requests is localhost:8080/users
 
