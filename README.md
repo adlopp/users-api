@@ -12,7 +12,7 @@ Just execute:
 
 ``` bash
 .\mvnw clean package
-java -jar .\target\backend-usersapp-0.0.1-SNAPSHOT.jar
+ java -jar .\target\users-api-0.0.1-SNAPSHOT.jar
 ```
 
 By default, the previous commands will deploy an instance of the API on the 8080 port of your local machine.

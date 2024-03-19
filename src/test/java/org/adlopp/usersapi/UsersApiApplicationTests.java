@@ -1,4 +1,4 @@
-package com.adrian.backend.usersapp.backendusersapp;
+package org.adlopp.usersapi;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -11,20 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.adlopp.usersapi.services.UserService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.adrian.backend.usersapp.backendusersapp.services.UserService;
-import com.adrian.backend.usersapp.backendusersapp.models.entities.User;
+import org.adlopp.usersapi.models.entities.User;
 
 @SpringBootTest
-class BackendUsersappApplicationTests {
+class UsersApiApplicationTests {
 
 	//@Autowired 
     //private MockMvc mockMvc; //PARA LAS SOLICITUDES

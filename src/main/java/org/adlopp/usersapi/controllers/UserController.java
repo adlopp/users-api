@@ -1,4 +1,4 @@
-package com.adrian.backend.usersapp.backendusersapp.controllers;
+package org.adlopp.usersapi.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.adrian.backend.usersapp.backendusersapp.models.entities.User;
-import com.adrian.backend.usersapp.backendusersapp.services.UserService;
+import org.adlopp.usersapi.models.entities.User;
+import org.adlopp.usersapi.services.UserService;
 
 
 

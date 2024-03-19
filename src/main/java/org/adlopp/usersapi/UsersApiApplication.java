@@ -1,13 +1,13 @@
-package com.adrian.backend.usersapp.backendusersapp;
+package org.adlopp.usersapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackendUsersappApplication {
+public class UsersApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendUsersappApplication.class, args);
+		SpringApplication.run(UsersApiApplication.class, args);
 	}
 
 }

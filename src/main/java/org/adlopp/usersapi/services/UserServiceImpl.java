@@ -1,15 +1,14 @@
-package com.adrian.backend.usersapp.backendusersapp.services;
+package org.adlopp.usersapi.services;
 
 import java.util.List;
 import java.util.Optional;
 
+import org.adlopp.usersapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adrian.backend.usersapp.backendusersapp.models.entities.User;
-import com.adrian.backend.usersapp.backendusersapp.repositories.UserRepository;
-
+import org.adlopp.usersapi.models.entities.User;
 
 
 @Service

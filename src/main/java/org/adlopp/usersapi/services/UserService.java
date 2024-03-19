@@ -1,9 +1,9 @@
-package com.adrian.backend.usersapp.backendusersapp.services;
+package org.adlopp.usersapi.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.adrian.backend.usersapp.backendusersapp.models.entities.User;
+import org.adlopp.usersapi.models.entities.User;
 
 public interface UserService {
     

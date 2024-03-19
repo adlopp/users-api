@@ -1,4 +1,4 @@
-package com.adrian.backend.usersapp.backendusersapp.models.entities;
+package org.adlopp.usersapi.models.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
