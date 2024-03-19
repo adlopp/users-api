@@ -19,7 +19,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.adlopp.usersapi.models.entities.User;
 
 @SpringBootTest
-class UsersApiApplicationTests {
+class UsersApiApplicationTest {
 
 	//@Autowired 
     //private MockMvc mockMvc; //PARA LAS SOLICITUDES
@@ -31,18 +31,20 @@ class UsersApiApplicationTests {
     void testFindAllUsers() {
         List<User> userList = new ArrayList<>();
 
-        User user1 = new User();
-        user1.setId(1L);
-        user1.setUsername("Luffy");
-        user1.setEmail("Luffy@example.com");
-		user1.setPassword("12345");
+        User user1 = User.builder()
+            .id(1L)
+            .username("Luffy")
+            .email("Luffy@example.com")
+            .password("12345")
+            .build();
         userList.add(user1);
 
-        User user2 = new User();
-        user2.setId(2L);
-        user2.setUsername("Willyrex");
-        user2.setEmail("Willyrex@example.com");
-		user2.setPassword("Luffy");
+        User user2 = User.builder()
+                .id(2L)
+                .username("Willyrex")
+                .email("Willyrex@example.com")
+                .password("Luffy")
+                .build();
         userList.add(user2);
 
         when(userService.findAll()).thenReturn(userList);
@@ -58,11 +60,12 @@ class UsersApiApplicationTests {
 
 	@Test
     void testFindUserById() {
-        User user = new User();
-        user.setId(1L);
-        user.setUsername("Luffy");
-        user.setEmail("Luffy@example.com");
-        user.setPassword("Luffy");
+        User user = User.builder()
+            .id(1L)
+            .username("Luffy")
+            .email("Luffy@example.com")
+            .password("Luffy")
+            .build();
 
         when(userService.findById(1L)).thenReturn(Optional.of(user));
 
@@ -89,19 +92,20 @@ class UsersApiApplicationTests {
 
 	@Test
     void testSaveUser() {
-        User userToSave = new User();
-        userToSave.setUsername("Luffy");
-        userToSave.setEmail("Luffy@example.com");
-        userToSave.setPassword("12345");
+        User user = User.builder()
+            .username("Luffy")
+            .email("Luffy@example.com")
+            .password("12345")
+            .build();
 
-        when(userService.save(userToSave)).thenReturn(userToSave);
+        when(userService.save(user)).thenReturn(user);
 
-        User savedUser = userService.save(userToSave);
+        User savedUser = userService.save(user);
 
-        verify(userService, times(1)).save(userToSave);
+        verify(userService, times(1)).save(user);
 
         assertNotNull(savedUser);
-        assertEquals(userToSave, savedUser);
+        assertEquals(user, savedUser);
 
 		//System.out.println("Saved User: " + savedUser.getUsername());
     }
@@ -109,20 +113,21 @@ class UsersApiApplicationTests {
 	@Test
     void testUpdateUser() {
         // Crear un usuario ficticio
-        User userToUpdate = new User();
-        userToUpdate.setId(1L);
-        userToUpdate.setUsername("LuffyGear5th");
-        userToUpdate.setEmail("LuffyGear5th@example.com");
-        userToUpdate.setPassword("999999");
+        User user = User.builder()
+            .id(1L)
+            .username("LuffyGear5th")
+            .email("LuffyGear5th@example.com")
+            .password("999999")
+            .build();
 
-        when(userService.update(userToUpdate, 1L)).thenReturn(Optional.of(userToUpdate));
+        when(userService.update(user, 1L)).thenReturn(Optional.of(user));
 
-        Optional<User> updatedUserOptional = userService.update(userToUpdate, 1L);
+        Optional<User> updatedUserOptional = userService.update(user, 1L);
 
-        verify(userService, times(1)).update(userToUpdate, 1L);
+        verify(userService, times(1)).update(user, 1L);
 
         assertTrue(updatedUserOptional.isPresent());
-        assertEquals(userToUpdate, updatedUserOptional.get());
+        assertEquals(user, updatedUserOptional.get());
     }
 
 	@Test
