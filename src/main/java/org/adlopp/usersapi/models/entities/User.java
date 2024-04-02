@@ -16,6 +16,17 @@ import lombok.Setter;
 @Getter
 public class User {
 
+    public User(){
+
+    }
+
+    public User(Long id, String username, String password, String email){
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
