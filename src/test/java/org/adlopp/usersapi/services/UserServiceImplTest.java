@@ -10,8 +10,10 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -36,6 +38,7 @@ public class UserServiceImplTest {
             .password("password2")
             .email("mail2")
             .build();
+
     private final List<User> expectedUsers = List.of(testUser1, testUser2);
 
     @Test
@@ -49,6 +52,7 @@ public class UserServiceImplTest {
         // Assert
         assertEquals(expectedUsers, users);
         Mockito.verify(repository).findAll();
+
     }
 
     @Test

@@ -20,10 +20,6 @@ import org.adlopp.usersapi.models.entities.User;
 
 @SpringBootTest
 class UsersApiApplicationTest {
-
-	//@Autowired 
-    //private MockMvc mockMvc; //PARA LAS SOLICITUDES
-
 	@MockBean
     private UserService userService;
 
@@ -46,6 +42,14 @@ class UsersApiApplicationTest {
                 .password("Luffy")
                 .build();
         userList.add(user2);
+
+        User updatedUser = User.builder()
+                .id(1L)
+                .username("newUsername")
+                .password("newPassword")
+                .email("newEmail")
+                .build();
+
 
         when(userService.findAll()).thenReturn(userList);
 
