@@ -12,6 +12,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceImplTest {
@@ -59,6 +62,18 @@ public class UserServiceImplTest {
         // Assert
         assertEquals(testUser1, user);
         Mockito.verify(repository).save(testUser1);
+    }
+
+    @Test
+    public void givenAValidUserId_whenRemove_thenUserIsDeleted() {
+        // Assign
+        Long id = 1L;
+
+        // Act
+        userService.remove(id);
+
+        // Assert
+        Mockito.verify(repository).deleteById(id);
     }
 
 }
