@@ -56,6 +56,22 @@ public class UserServiceImplTest {
     }
 
     @Test
+    public void givenValidUserId_whenFindById_thenUserIsReturned() {
+        // Assign
+        Long userId = 1L;
+        Mockito.when(repository.findById(userId)).thenReturn(Optional.of(testUser1));
+
+        // Act
+        Optional<User> userOptional = userService.findById(userId);
+
+        // Assert
+        assertTrue(userOptional.isPresent());
+        assertEquals(testUser1, userOptional.get());
+        Mockito.verify(repository).findById(userId);
+    }
+
+
+    @Test
     public void givenAUser_whenSave_thenTheUserIsReturned() {
         // Assign
         Mockito.when(repository.save(testUser1)).thenReturn(testUser1);
@@ -67,6 +83,31 @@ public class UserServiceImplTest {
         assertEquals(testUser1, user);
         Mockito.verify(repository).save(testUser1);
     }
+
+    @Test
+    public void givenValidUserAndId_whenUpdate_thenUserIsUpdated() {
+        // Asignar
+        Long userId = 1L;
+        User updatedUser = User.builder()
+                .id(userId)
+                .username("updatedUsername")
+                .password("updatedPassword")
+                .email("updatedEmail")
+                .build();
+        Optional<User> existingUserOptional = Optional.of(testUser1);
+        Mockito.when(userService.findById(userId)).thenReturn(existingUserOptional);
+        Mockito.when(repository.save(Mockito.any(User.class))).thenReturn(updatedUser);
+
+        // Act
+        Optional<User> updatedUserOptional = userService.update(updatedUser, userId);
+        updatedUser.setUsername("updatedUsername");
+        updatedUser.setEmail("updatedEmail");
+
+        // Assert
+        assertTrue(updatedUserOptional.isPresent());
+        assertEquals(updatedUser, updatedUserOptional.get());
+    }
+
 
     @Test
     public void givenAValidUserId_whenRemove_thenUserIsDeleted() {
