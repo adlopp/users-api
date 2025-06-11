@@ -1,4 +1,4 @@
-# Users-API
+# User Management REST API with Spring Boot
 
 The purpose of this project is to create a simple API for user management, supporting a web application that you can find in [this repository](https://github.com/adlopp/users-app).
 
